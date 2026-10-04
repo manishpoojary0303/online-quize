@@ -1,5 +1,5 @@
 /**
- * QuizNova - Formspree Service
+ * SeminarQuiz - Formspree Service
  * Secure client-side dispatch for quiz submission summaries.
  * 
  * Rules:
@@ -8,8 +8,8 @@
  * - Non-blocking: Submissions gracefully resolve even if network or Formspree is unconfigured.
  */
 
-window.QuizNovaFormspree = (function () {
-  const STORAGE_KEY = "quiznova_formspree_endpoint";
+window.SeminarQuizFormspree = (function () {
+  const STORAGE_KEY = "seminarquiz_formspree_endpoint";
   const DEFAULT_FORM_ID = "meaoyyep"; // Optional default Formspree form ID
 
   function getStoredEndpoint() {
@@ -63,13 +63,13 @@ window.QuizNovaFormspree = (function () {
     };
 
     if (!endpoint) {
-      console.info("[QuizNova Formspree] No Formspree endpoint configured. Result recorded locally.");
+      console.info("[SeminarQuiz Formspree] No Formspree endpoint configured. Result recorded locally.");
       return resultMeta;
     }
 
     try {
         const requestBody = {
-          _subject: `QuizNova Submission: ${payload.quizTitle}`,
+          _subject: `SeminarQuiz Submission: ${payload.quizTitle}`,
           participant: payload.participantName || "Anonymous Participant",
           score: `${payload.score} / ${payload.totalQuestions}`,
           timeTaken: payload.timeFormatted
@@ -86,15 +86,15 @@ window.QuizNovaFormspree = (function () {
 
       if (response.ok) {
         resultMeta.sentToFormspree = true;
-        console.log("[QuizNova Formspree] Submission successfully sent to Formspree.");
+        console.log("[SeminarQuiz Formspree] Submission successfully sent to Formspree.");
       } else {
         const errorData = await response.json().catch(() => ({}));
         resultMeta.error = errorData.error || `HTTP ${response.status}`;
-        console.warn("[QuizNova Formspree] Submission returned error:", resultMeta.error);
+        console.warn("[SeminarQuiz Formspree] Submission returned error:", resultMeta.error);
       }
     } catch (err) {
       resultMeta.error = err.message;
-      console.warn("[QuizNova Formspree] Submission request failed (offline/CORS):", err);
+      console.warn("[SeminarQuiz Formspree] Submission request failed (offline/CORS):", err);
     }
 
     return resultMeta;

@@ -1,4 +1,4 @@
-# QuizNova - Lightweight Local Development Server for Windows
+# SeminarQuiz - Lightweight Local Development Server for Windows
 # Runs natively using .NET HttpListener without requiring Node.js or Python.
 
 param(
@@ -28,7 +28,7 @@ try {
 }
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host " QuizNova Local Server Running!" -ForegroundColor Green
+Write-Host " SeminarQuiz Local Server Running!" -ForegroundColor Green
 Write-Host " Local URL:     $Prefix" -ForegroundColor White
 Write-Host " Direct Quiz:  $Prefix`index.html#/quiz/ds-fundamentals" -ForegroundColor White
 Write-Host " Organizer QR: $Prefix`index.html#/organizer" -ForegroundColor White

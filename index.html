@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-  <meta name="description" content="QuizNova - High-performance QR-code-based online quiz platform for live classrooms, conferences, and instant assessments. No login required."/>
-  <title>QuizNova — Precision QR Quiz Platform</title>
+  <meta name="description" content="SeminarQuiz - High-performance QR-code-based online quiz platform for live classrooms, conferences, and instant assessments. No login required."/>
+  <title>SeminarQuiz — Precision QR Quiz Platform</title>
 
   <!-- Google Fonts: Manrope (Display & Headings) and Inter (Reading & Inputs) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
-  <!-- Tailwind CSS via CDN with QuizNova Design System Token Extensions -->
+  <!-- Tailwind CSS via CDN with SeminarQuiz Design System Token Extensions -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -123,14 +123,8 @@
     <div class="h-16 px-gutter-mobile max-w-4xl mx-auto flex items-center justify-between">
       <!-- Brand Logo & Title -->
       <a href="#/" class="flex items-center gap-space-sm group">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-          <svg class="w-5 h-5 text-on-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="16" y1="16" x2="21" y2="21"></line>
-            <circle cx="11" cy="11" r="2" fill="currentColor"></circle>
-          </svg>
-        </div>
-        <span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-extrabold">Quiz<span class="text-primary-container">Nova</span></span>
+        <img src="assets/images/logo.svg" alt="SeminarQuiz Logo" class="w-8 h-8 rounded-xl shadow-sm group-hover:scale-105 transition-transform" />
+        <span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-extrabold">Seminar<span class="text-primary-container">Quiz</span></span>
         <span class="hidden sm:inline-block font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full ml-1">Interactive Assessment</span>
       </a>
 
@@ -390,11 +384,11 @@
       <footer class="w-full px-gutter-mobile py-space-lg bg-surface-container-low mt-auto border-t border-outline-variant/20">
         <div class="max-w-lg mx-auto flex flex-col items-center text-center gap-space-sm">
           <div class="flex items-center gap-2">
-            <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold">Quiz<span class="text-primary-container">Nova</span></span>
+            <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold">Seminar<span class="text-primary-container">Quiz</span></span>
           </div>
           <p class="font-body-sm text-body-sm text-on-surface-variant">Precision assessments for inquisitive minds • Zero friction QR platform.</p>
           <div class="text-xs text-on-surface-variant/70 font-body-sm">
-            © 2026 QuizNova. All quiz evaluations run locally in your browser.
+            © 2026 SeminarQuiz. All quiz evaluations run locally in your browser.
           </div>
         </div>
       </footer>
@@ -581,7 +575,7 @@
             <a href="#/quiz/ds-fundamentals" class="w-10 h-10 flex items-center justify-center rounded-xl text-on-surface hover:bg-surface-container active:scale-95 transition-all" title="Exit to Welcome Room">
               <span class="material-symbols-outlined text-[20px]">arrow_back</span>
             </a>
-            <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold tracking-tight">QuizNova</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold tracking-tight">SeminarQuiz</span>
           </div>
 
           <div class="flex items-center gap-space-sm">
@@ -675,7 +669,7 @@
           <div id="active-navigator-strip" class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-[280px]">
             <!-- Dots rendered via renderNavigatorStrip() -->
           </div>
-          <button type="button" onclick="QuizNovaApp.state.currentQuestionIndex = 14; QuizNovaApp.navigateTo('#/quiz/ds-fundamentals/active'); document.getElementById('active-finish-top-btn').click();" class="font-label-sm text-label-sm text-primary hover:underline font-bold flex items-center gap-1">
+          <button type="button" onclick="SeminarQuizApp.state.currentQuestionIndex = 14; SeminarQuizApp.navigateTo('#/quiz/ds-fundamentals/active'); document.getElementById('active-finish-top-btn').click();" class="font-label-sm text-label-sm text-primary hover:underline font-bold flex items-center gap-1">
             <span>Summary</span>
             <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
           </button>

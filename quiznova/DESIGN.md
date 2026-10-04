@@ -1,5 +1,5 @@
 ---
-name: QuizNova
+name: SeminarQuiz
 colors:
   surface: '#fcf8ff'
   surface-dim: '#dad7f2'

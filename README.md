@@ -1,9 +1,9 @@
 
-# QuizNova — High-Performance QR-Based Assessment Platform
+# SeminarQuiz — High-Performance QR-Based Assessment Platform
 
-QuizNova is a lightweight, zero-friction, browser-native assessment platform designed for live classrooms, conference stages, corporate seminars, and self-paced trivia.
+SeminarQuiz is a lightweight, zero-friction, browser-native assessment platform designed for live classrooms, conference stages, corporate seminars, and self-paced trivia.
 
-Built faithfully upon the **Google Stitch** design system, QuizNova delivers an editorial-grade experience featuring vibrant digital purple accents, high-contrast typography, and thumb-friendly mobile layouts.
+Built faithfully upon the **Google Stitch** design system, SeminarQuiz delivers an editorial-grade experience featuring vibrant digital purple accents, high-contrast typography, and thumb-friendly mobile layouts.
 
 ---
 
@@ -43,7 +43,7 @@ Built faithfully upon the **Google Stitch** design system, QuizNova delivers an 
   - High-resolution **"Download PNG"** QR code button.
 - **Printable Stage / Classroom Poster:**
   - Dedicated `@media print` layout formatting an 8.5x11 / A4 printable poster.
-  - Includes high-contrast QuizNova branding, big scannable QR code, session PIN (`#4829`), and 3-step instructions for participants.
+  - Includes high-contrast SeminarQuiz branding, big scannable QR code, session PIN (`#4829`), and 3-step instructions for participants.
 - **Formspree Integration:**
   - Non-blocking client-side dispatch of submission summaries.
   - Formspree endpoint can be customized and saved right in the Host Studio.
@@ -89,7 +89,7 @@ powershell -ExecutionPolicy Bypass -File .\server.ps1 -Port 3000
 - Host QR Studio: `http://localhost:3000/#/organizer`
 
 ### Option 2: Direct Browser Opening
-Because QuizNova is built with pure web technologies and client-side hash routing, you can directly double-click or open [index.html](file:///index.html) in Chrome, Edge, Safari, or Firefox.
+Because SeminarQuiz is built with pure web technologies and client-side hash routing, you can directly double-click or open [index.html](file:///index.html) in Chrome, Edge, Safari, or Firefox.
 
 ### Option 3: Standard Static Web Servers
 If you have Python, Node, or VS Code Live Server:
@@ -100,7 +100,7 @@ If you have Python, Node, or VS Code Live Server:
 
 ## 🌐 Deploying Online (Free & Instant)
 
-Deploy QuizNova to the web in under 2 minutes so audiences worldwide can scan the QR code from their mobile devices:
+Deploy SeminarQuiz to the web in under 2 minutes so audiences worldwide can scan the QR code from their mobile devices:
 
 ### GitHub Pages
 1. Push this directory to a GitHub repository.
@@ -118,5 +118,5 @@ Deploy QuizNova to the web in under 2 minutes so audiences worldwide can scan th
 
 1. Create a free form at [formspree.io](https://formspree.io).
 2. Copy your Form ID (e.g., `xpzgqxxx` or endpoint `https://formspree.io/f/xpzgqxxx`).
-3. Open **Host Hub** (`#/organizer`) in QuizNova, paste your Formspree endpoint into the **Formspree Results Dispatch** field, and click **Save Formspree Setting**.
+3. Open **Host Hub** (`#/organizer`) in SeminarQuiz, paste your Formspree endpoint into the **Formspree Results Dispatch** field, and click **Save Formspree Setting**.
 4. Every student quiz submission summary will automatically be dispatched to your Formspree dashboard upon completion.

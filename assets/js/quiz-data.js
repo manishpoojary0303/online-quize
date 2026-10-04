@@ -1,5 +1,5 @@
 /**
- * QuizNova - Question Data & Answer Key
+ * SeminarQuiz - Question Data & Answer Key
  * Quiz: Data Science Fundamentals
  * Total Questions: 15
  * 
@@ -7,7 +7,7 @@
  * While answering, participants do not receive immediate correctness feedback.
  */
 
-window.QUIZNOVA_DATA = {
+window.SEMINARQUIZ_DATA = {
   quizzes: {
     "ds-fundamentals": {
       id: "ds-fundamentals",

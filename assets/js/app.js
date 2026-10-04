@@ -1,5 +1,5 @@
 /**
- * QuizNova - Core Application Controller
+ * SeminarQuiz - Core Application Controller
  * Handles routing, student assessment flow, neutral answer selection,
  * scoring engine, results analytics, review drawer, organizer QR generator & poster.
  */
@@ -71,7 +71,7 @@
     } else if (primary === 'quiz') {
       const qId = segments[1] || 'ds-fundamentals';
       state.quizId = qId;
-      state.quiz = window.QUIZNOVA_DATA.getQuiz(qId);
+      state.quiz = window.SEMINARQUIZ_DATA.getQuiz(qId);
 
       const subRoute = segments[2] || '';
       if (subRoute === 'active') {
@@ -144,7 +144,7 @@
 
   // --- Welcome Screen Logic ---
   function renderWelcomeScreen() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     state.quiz = quiz;
 
     const titleEl = document.getElementById('welcome-quiz-title');
@@ -236,7 +236,7 @@
 
   // --- Active Quiz Rendering ---
   function renderActiveQuestion() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     state.quiz = quiz;
     const questions = quiz.questions;
     const currentQ = questions[state.currentQuestionIndex];
@@ -396,7 +396,7 @@
   }
 
   function toggleCurrentBookmark() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     const currentQ = quiz.questions[state.currentQuestionIndex];
     if (!currentQ) return;
 
@@ -411,7 +411,7 @@
   }
 
   function nextQuestion() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     if (state.currentQuestionIndex < quiz.questions.length - 1) {
       state.currentQuestionIndex++;
       renderActiveQuestion();
@@ -430,7 +430,7 @@
   }
 
   function goToQuestion(index) {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     if (index >= 0 && index < quiz.questions.length) {
       state.currentQuestionIndex = index;
       renderActiveQuestion();
@@ -477,7 +477,7 @@
 
   // --- Submit Modal (Confirmation) ---
   function openSubmitModal() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     const questions = quiz.questions;
     const total = questions.length;
     const answeredCount = Object.keys(state.answers).length;
@@ -552,7 +552,7 @@
 
   // --- Score Engine & Results Evaluation ---
   function computeResults() {
-    const quiz = state.quiz || window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = state.quiz || window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     state.quiz = quiz;
     state.endTime = new Date();
 
@@ -655,8 +655,8 @@
     const results = computeResults();
 
     // Trigger asynchronous Formspree dispatch (non-blocking)
-    if (window.QuizNovaFormspree) {
-      window.QuizNovaFormspree.submitResults(results).catch(e => {
+    if (window.SeminarQuizFormspree) {
+      window.SeminarQuizFormspree.submitResults(results).catch(e => {
         console.warn("Formspree dispatch background error:", e);
       });
     }
@@ -891,7 +891,7 @@
 
   // --- Organizer View & QR Generator ---
   function renderOrganizerView() {
-    const quiz = window.QUIZNOVA_DATA.getQuiz(state.quizId);
+    const quiz = window.SEMINARQUIZ_DATA.getQuiz(state.quizId);
     state.quiz = quiz;
 
     // Public URL to the quiz welcome room
@@ -903,8 +903,8 @@
 
     // Load saved Formspree endpoint into input
     const formspreeInput = document.getElementById('organizer-formspree-input');
-    if (formspreeInput && window.QuizNovaFormspree) {
-      formspreeInput.value = window.QuizNovaFormspree.getEndpoint();
+    if (formspreeInput && window.SeminarQuizFormspree) {
+      formspreeInput.value = window.SeminarQuizFormspree.getEndpoint();
     }
 
     // Generate Scannable QR Code
@@ -985,7 +985,7 @@
 
     if (dataUrl) {
       const link = document.createElement('a');
-      link.download = `quiznova-${state.quizId}-qr.png`;
+      link.download = `seminarquiz-${state.quizId}-qr.png`;
       link.href = dataUrl;
       link.click();
       showToast('QR Code downloaded successfully!', 'success');
@@ -996,9 +996,9 @@
 
   function saveFormspreeConfig() {
     const input = document.getElementById('organizer-formspree-input');
-    if (!input || !window.QuizNovaFormspree) return;
+    if (!input || !window.SeminarQuizFormspree) return;
 
-    const savedEndpoint = window.QuizNovaFormspree.setEndpoint(input.value);
+    const savedEndpoint = window.SeminarQuizFormspree.setEndpoint(input.value);
     if (savedEndpoint) {
       showToast(`Formspree endpoint saved: ${savedEndpoint}`, 'success');
     } else {
@@ -1018,8 +1018,8 @@
     if (!state.results) return;
 
     const shareData = {
-      title: `QuizNova: ${state.results.quizTitle}`,
-      text: `I just completed the ${state.results.quizTitle} quiz on QuizNova and scored ${state.results.percentage}% (${state.results.score}/${state.results.totalQuestions} correct)! Can you beat my score?`,
+      title: `SeminarQuiz: ${state.results.quizTitle}`,
+      text: `I just completed the ${state.results.quizTitle} quiz on SeminarQuiz and scored ${state.results.percentage}% (${state.results.score}/${state.results.totalQuestions} correct)! Can you beat my score?`,
       url: window.location.href.split('#')[0] + `#/quiz/${state.quizId}`
     };
 
@@ -1183,7 +1183,7 @@
   });
 
   // Expose API for debug & console interaction
-  window.QuizNovaApp = {
+  window.SeminarQuizApp = {
     state: state,
     navigateTo: navigateTo,
     selectOption: selectOptionNeutral,
