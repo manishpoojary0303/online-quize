@@ -705,7 +705,7 @@
         feedbackDesc.textContent = "Good attempt! Review the answered questions below to clarify key lifecycle steps and model evaluation distinctions.";
       } else {
         feedbackTitle.textContent = "Learning Opportunity";
-        feedbackDesc.textContent = "Every test is a step toward mastery. Take a look at the comprehensive answer key and try retaking the quiz!";
+        feedbackDesc.textContent = "Every test is a step toward mastery. Take a look at the comprehensive answer key to improve.";
       }
     }
 
@@ -1108,7 +1108,16 @@
       nameModalStart.addEventListener('click', () => {
         const nameInput = document.getElementById('participant-name-input');
         if (nameInput && nameInput.value.trim()) {
-          state.participantName = nameInput.value.trim();
+          const newName = nameInput.value.trim();
+          let usedNames = JSON.parse(localStorage.getItem('seminarquiz_used_names') || '[]');
+          if (usedNames.includes(newName.toLowerCase())) {
+            alert('user name already exits');
+            return;
+          }
+          usedNames.push(newName.toLowerCase());
+          localStorage.setItem('seminarquiz_used_names', JSON.stringify(usedNames));
+          
+          state.participantName = newName;
           const nameModal = document.getElementById('name-modal');
           nameModal.classList.remove('flex');
           nameModal.classList.add('hidden');
@@ -1149,12 +1158,6 @@
     const btnReviewAnswers = document.getElementById('btn-review-answers');
     if (btnReviewAnswers) btnReviewAnswers.addEventListener('click', openReviewModal);
 
-    const btnRetakeQuiz = document.getElementById('btn-retake-quiz');
-    if (btnRetakeQuiz) {
-      btnRetakeQuiz.addEventListener('click', () => {
-        navigateTo(`#/quiz/${state.quizId}`);
-      });
-    }
 
     const btnShareResult = document.getElementById('btn-share-result');
     if (btnShareResult) btnShareResult.addEventListener('click', shareResult);

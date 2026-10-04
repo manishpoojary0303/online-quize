@@ -251,11 +251,6 @@
 <span class="material-symbols-outlined text-[20px]">manage_search</span>
 <span>Review Answers</span>
 </button>
-<!-- Secondary CTA: Retake Quiz -->
-<button class="w-full h-[52px] bg-surface-container-lowest text-on-surface rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all hover:bg-surface-container-low" id="btn-retake" type="button">
-<span class="material-symbols-outlined text-[20px] text-on-surface-variant">replay</span>
-<span>Retake Quiz</span>
-</button>
 <!-- Tertiary Shared Utilities -->
 <div class="flex items-center justify-center gap-4 mt-2">
 <button class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors py-2 px-3 font-label-md text-label-md" id="btn-share" type="button">
@@ -273,7 +268,7 @@
 <script>
   (function () {
     const reviewBtn = document.getElementById('btn-review');
-    const retakeBtn = document.getElementById('btn-retake');
+
     const shareBtn = document.getElementById('btn-share');
 
     if (reviewBtn) {
@@ -286,15 +281,7 @@
       });
     }
 
-    if (retakeBtn) {
-      retakeBtn.addEventListener('click', function () {
-        const icon = this.querySelector('.material-symbols-outlined');
-        if (icon) icon.classList.add('animate-spin');
-        setTimeout(() => {
-          if (icon) icon.classList.remove('animate-spin');
-        }, 800);
-      });
-    }
+
 
     if (shareBtn) {
       shareBtn.addEventListener('click', function () {
