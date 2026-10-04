@@ -1,3 +1,4 @@
+
 # QuizNova — High-Performance QR-Based Assessment Platform
 
 QuizNova is a lightweight, zero-friction, browser-native assessment platform designed for live classrooms, conference stages, corporate seminars, and self-paced trivia.
