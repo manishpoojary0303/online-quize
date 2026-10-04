@@ -69,26 +69,11 @@ window.QuizNovaFormspree = (function () {
 
     try {
         const requestBody = {
-          _subject: `QuizNova Submission: ${payload.quizTitle} (${payload.percentage}%)`,
-          quizId: payload.quizId,
-          quizTitle: payload.quizTitle,
+          _subject: `QuizNova Submission: ${payload.quizTitle}`,
           participant: payload.participantName || "Anonymous Participant",
           score: `${payload.score} / ${payload.totalQuestions}`,
-          percentage: `${payload.percentage}%`,
-          passed: payload.percentage >= payload.passPercentage ? "YES" : "NO",
-          correctCount: payload.correctCount,
-          incorrectCount: payload.incorrectCount,
-          unansweredCount: payload.unansweredCount,
-          timeTaken: payload.timeFormatted,
-          timestamp: new Date().toISOString()
+          timeTaken: payload.timeFormatted
         };
-
-        // Add each question and answer to the body root for readable Formspree emails
-        if (payload.detailedAnswers && payload.detailedAnswers.length > 0) {
-          payload.detailedAnswers.forEach((ans, index) => {
-            requestBody[`Q${index + 1}: ${ans.question}`] = `Selected: ${ans.selectedAnswer || 'Unanswered'} (Correct: ${ans.correctAnswer})`;
-          });
-        }
 
         const response = await fetch(endpoint, {
           method: "POST",
