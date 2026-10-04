@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <defs>
+    <linearGradient id="qg" x1="8" y1="8" x2="48" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#635BFF"/>
+      <stop offset="100%" stop-color="#4938D1"/>
+    </linearGradient>
+  </defs>
+  <!-- Abstract Q Icon -->
+  <rect x="6" y="8" width="48" height="48" rx="14" fill="url(#qg)"/>
+  <circle cx="28" cy="28" r="11" stroke="#FFFFFF" stroke-width="4.5" fill="none"/>
+  <path d="M36 36L42 42" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="28" cy="28" r="3" fill="#FFFFFF"/>
+  <!-- Wordmark -->
+  <text x="66" y="38" font-family="'Manrope', 'Inter', sans-serif" font-size="24" font-weight="800" fill="#17172A" letter-spacing="-0.5">Quiz<tspan fill="#635BFF">Nova</tspan></text>
+  <text x="67" y="50" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#73758A" letter-spacing="1.2">CHALLENGE YOUR KNOWLEDGE</text>
+</svg>
